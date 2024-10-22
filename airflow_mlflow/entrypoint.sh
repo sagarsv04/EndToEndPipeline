@@ -15,8 +15,14 @@ airflow users create \
 # Start Airflow scheduler and webserver
 airflow scheduler & airflow webserver -p 8080 &
 
-# Start MLflow server
-mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns --host 0.0.0.0 --port 5000 &
+# Set the MLflow tracking URI to point to the running MLflow server
+export MLFLOW_TRACKING_URI="http://localhost:5000"
+
+# # Start MLflow server
+# mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns --host 0.0.0.0 --port 5000 &
+
+# Start the MLflow tracking server
+mlflow ui --host 0.0.0.0 --port 5000 &
 
 # Start Flask API
 python /opt/airflow/serve_model.py &

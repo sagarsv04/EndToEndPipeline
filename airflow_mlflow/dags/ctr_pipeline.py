@@ -16,7 +16,8 @@ default_args = {
     'retries': 1
 }
 
-dag = DAG('ctr_pipeline', default_args=default_args, schedule_interval='@daily')
+# Disable backfilling by setting catchup=False
+dag = DAG('ctr_pipeline', default_args=default_args, schedule_interval=None, catchup=False)
 
 generate_data_task = PythonOperator(
     task_id='generate_data',
