@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: ctr-container
-        image: <your_dockerhub_username>/ctr-combined:latest
+        image: <your_dockerhub_username>/ctr-combined:latest # Note: Change this based on your pushed docker image
         ports:
         - containerPort: 8080   # Airflow
         - containerPort: 5000   # MLflow
