@@ -26,6 +26,7 @@ EndToEndPipeline/
 - Docker
 - Docker Compose (Optional, if using locally)
 - Kubernetes (Optional, if deploying on Kubernetes)
+- Python 3.8 (apache-airflow==2.2.2, mlflow, scikit-learn, pandas, flask)
 
 ## Steps to Run Locally with Docker
 ### Clone the Repository
@@ -91,6 +92,6 @@ kubectl apply -f service.yaml
 ```
 kubectl get services
 ```
-- Airflow UI will be available at http://EXTERNAL-IP:8080
-- MLflow UI will be available at http://EXTERNAL-IP:5000
-- Flask API will be available at http://EXTERNAL-IP:5001
+- Airflow UI will be available at http://external_ip:8080
+- MLflow UI will be available at http://external_ip:5000
+- Flask API will be available at http://external_ip:5001
