@@ -13,7 +13,7 @@ def train_model():
     y = data['ad_click']
 
     # Train/test split
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
 
     # Set the MLflow experiment by name (it will create the experiment if it doesn't exist)
     mlflow.set_experiment("CTR_Prediction")
