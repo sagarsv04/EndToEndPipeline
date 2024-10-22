@@ -1,0 +1,19 @@
+# kubernetes/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: ctr-service
+spec:
+  type: LoadBalancer
+  ports:
+    - name: airflow
+      port: 8080
+      targetPort: 8080
+    - name: mlflow
+      port: 5000
+      targetPort: 5000
+    - name: flask-api
+      port: 5001
+      targetPort: 5001
+  selector:
+    app: ctr-model

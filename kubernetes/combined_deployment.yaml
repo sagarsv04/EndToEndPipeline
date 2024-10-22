@@ -1,0 +1,31 @@
+# kubernetes/combined_deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ctr-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ctr-model
+  template:
+    metadata:
+      labels:
+        app: ctr-model
+    spec:
+      containers:
+      - name: ctr-container
+        image: <your_dockerhub_username>/ctr-combined:latest
+        ports:
+        - containerPort: 8080   # Airflow
+        - containerPort: 5000   # MLflow
+        - containerPort: 5001   # Flask API
+
+        # Add resource limits and requests
+        resources:
+          requests:
+            memory: "512Mi"     # Minimum memory requested
+            cpu: "500m"         # Minimum CPU requested (500 millicores = 0.5 CPU)
+          limits:
+            memory: "1Gi"       # Maximum memory allowed
+            cpu: "1"            # Maximum CPU allowed (1 CPU)
