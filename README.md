@@ -3,7 +3,7 @@
 
 This project demonstrates an end-to-end machine learning pipeline for **Click-Through Rate (CTR) Prediction**. The pipeline includes data generation, data processing, model training, and model deployment using **Airflow** as the orchestrator and **MLflow** for tracking experiments. The trained model is served using a **Flask API** for real-time predictions.
 
-## Project Structure
+## Project Structure 
 ```
 EndToEndPipeline/
 ├── airflow_mlflow/
@@ -15,12 +15,12 @@ EndToEndPipeline/
 │   │   └── deploy_model.py          # Model deployment logic
 │   ├── serve_model.py               # Flask API for serving the trained model
 │   ├── Dockerfile                   # Dockerfile for building the environment
-│   └── entrypoint.sh                # Entrypoint script to start all services
-├── grafana_dashboards/
-│   └── ctr_dashboard.json            # Pre-configured Grafana dashboard
-├── grafana_data/                     # CSVs for Grafana visualization
-│   ├── historical_stats.csv          # Historical data distribution stats
-│   └── new_stats.csv                 # New data distribution stats
+│   ├── entrypoint.sh                # Entrypoint script to start all services
+│   ├── grafana.ini                  # Grafana Configuration
+│   └── ctr_dashboard.json           # Pre-configured Grafana dashboard - WIP
+├── grafana_data/                    # CSVs for Grafana visualization
+│   ├── historical_stats.csv         # Historical data distribution stats
+│   └── new_stats.csv                # New data distribution stats
 ├── kubernetes/
 │   ├── combined_deployment.yaml     # Kubernetes deployment for Airflow + MLflow + Flask
 │   └── service.yaml                 # Kubernetes service definition

@@ -27,9 +27,9 @@ RUN mkdir -p /etc/grafana/provisioning/dashboards
 COPY dags /opt/airflow/dags/
 COPY serve_model.py /opt/airflow/serve_model.py
 COPY entrypoint.sh /entrypoint.sh
-COPY grafana_dashboards /etc/grafana/provisioning/dashboards/
+COPY ctr_dashboard.json /etc/grafana/provisioning/dashboards/
 # Copy custom grafana.ini to enable local CSV mode
-COPY grafana_dashboards/grafana.ini /etc/grafana/grafana.ini
+COPY grafana.ini /etc/grafana/grafana.ini
 
 # Set permissions for entrypoint script
 RUN chmod +x /entrypoint.sh
