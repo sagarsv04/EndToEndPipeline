@@ -1,0 +1,89 @@
+{
+    "dashboard": {
+      "id": null,
+      "title": "CTR Prediction Data Monitoring",
+      "timezone": "browser",
+      "version": 1,
+      "panels": [
+        {
+          "type": "table",
+          "title": "Historical Data Statistics",
+          "gridPos": { "x": 0, "y": 0, "w": 12, "h": 6 },
+          "targets": [
+            {
+              "csvpath": "/opt/airflow/grafana_data/historical_stats.csv",
+              "csvplugin": "csv",
+              "refId": "A"
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "align": null
+              }
+            },
+            "overrides": []
+          },
+          "options": {
+            "showHeader": true
+          }
+        },
+        {
+          "type": "table",
+          "title": "New Data Statistics",
+          "gridPos": { "x": 0, "y": 6, "w": 12, "h": 6 },
+          "targets": [
+            {
+              "csvpath": "/opt/airflow/grafana_data/new_stats.csv",
+              "csvplugin": "csv",
+              "refId": "A"
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "align": null
+              }
+            },
+            "overrides": []
+          },
+          "options": {
+            "showHeader": true
+          }
+        },
+        {
+          "type": "table",
+          "title": "Data Drift Report",
+          "gridPos": { "x": 0, "y": 12, "w": 12, "h": 6 },
+          "targets": [
+            {
+              "csvpath": "/opt/airflow/grafana_data/drift_report.csv",
+              "csvplugin": "csv",
+              "refId": "A"
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "align": null
+              }
+            },
+            "overrides": []
+          },
+          "options": {
+            "showHeader": true
+          }
+        }
+      ]
+    }
+  }
+  

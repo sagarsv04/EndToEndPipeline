@@ -2,9 +2,11 @@
 import numpy as np
 import pandas as pd
 import random
+import os
 
-def generate_data(num_samples=100000):
+def generate_data():
     np.random.seed(random.choice([42, 41, 40]))
+    num_samples = random.choice([100000, 120000, 140000])
     data = {
         'user_id': np.random.randint(1, 1000, num_samples),
         'ad_id': np.random.randint(1, 100, num_samples),
@@ -15,5 +17,9 @@ def generate_data(num_samples=100000):
     }
     
     df = pd.DataFrame(data)
-    df.to_csv("/tmp/ctr_data.csv", index=False)
-    print("Data generated successfully at /tmp/ctr_data.csv")
+
+    if not os.path.exists("/opt/airflow/tmp/"):
+        os.makedirs("/opt/airflow/tmp/")
+
+    df.to_csv("/opt/airflow/tmp/ctr_data.csv", index=False)
+    print("Data generated successfully at /opt/airflow/tmp/ctr_data.csv")

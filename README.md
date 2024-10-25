@@ -16,6 +16,11 @@ EndToEndPipeline/
 │   ├── serve_model.py               # Flask API for serving the trained model
 │   ├── Dockerfile                   # Dockerfile for building the environment
 │   └── entrypoint.sh                # Entrypoint script to start all services
+├── grafana_dashboards/
+│   └── ctr_dashboard.json            # Pre-configured Grafana dashboard
+├── grafana_data/                     # CSVs for Grafana visualization
+│   ├── historical_stats.csv          # Historical data distribution stats
+│   └── new_stats.csv                 # New data distribution stats
 ├── kubernetes/
 │   ├── combined_deployment.yaml     # Kubernetes deployment for Airflow + MLflow + Flask
 │   └── service.yaml                 # Kubernetes service definition
@@ -40,10 +45,11 @@ docker build -t ctr-combined .
 ```
 ### Run the Docker Container
 ```
-docker run -p 8080:8080 -p 5000:5000 -p 5001:5001 ctr-combined
+docker run -p 8080:8080 -p 5000:5000 -p 5001:5001 -p 3000:3000 ctr-combined
 ```
 - Airflow UI will be available at http://localhost:8080
 - MLflow UI will be available at http://localhost:5000
+- Grafana UI will be available at http://localhost:3000
 - Flask API for model predictions will be available at http://localhost:5001
 
 ### Access Airflow and Trigger the DAG
@@ -94,4 +100,8 @@ kubectl get services
 ```
 - Airflow UI will be available at http://external_ip:8080
 - MLflow UI will be available at http://external_ip:5000
+- Grafana UI will be available at http://external_ip:3000
 - Flask API will be available at http://external_ip:5001
+
+## WIP
+- Grafana doesn't auto-load csv files and require manual panel setup

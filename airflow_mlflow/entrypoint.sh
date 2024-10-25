@@ -27,5 +27,8 @@ mlflow ui --host 0.0.0.0 --port 5000 &
 # Start Flask API
 python /opt/airflow/serve_model.py &
 
+# Start Grafana
+service grafana-server start &
+
 # Keep container running
 tail -f /dev/null

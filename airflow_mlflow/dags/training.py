@@ -8,7 +8,7 @@ import pickle  # Import the pickle module
 
 def train_model():
     # Load processed data
-    data = pd.read_csv("/tmp/ctr_data_processed.csv")
+    data = pd.read_csv("/opt/airflow/tmp/ctr_data_processed.csv")
     X = data[['user_age', 'user_income', 'user_clicks', 'income_click_ratio']]
     y = data['ad_click']
 
