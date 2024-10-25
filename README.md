@@ -85,7 +85,6 @@ curl -X POST http://localhost:5001/predict \
         "income_click_ratio": 4000
     }
 ]'
-
 ```
 
 ## Apply Kubernetes Deployment
@@ -102,6 +101,20 @@ kubectl get services
 - MLflow UI will be available at http://external_ip:5000
 - Grafana UI will be available at http://external_ip:3000
 - Flask API will be available at http://external_ip:5001
+
+### Access Grafana
+```
+- Go to http://localhost:3000.
+- Log in using the default Grafana credentials:
+- - Username: admin
+- - Password: admin
+- Go to Configuration > Data Sources > Add Data Source
+- - Select CSV Data Source
+- - In the File Path section, set the file path to /opt/airflow/grafana_data/
+- Create a Dashboard
+- - Go to Create > Dashboard > Add New Panel
+- - Set the path to the CSV file, e.g.
+```
 
 ## WIP
 - Grafana doesn't auto-load csv files and require manual panel setup
